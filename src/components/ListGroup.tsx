@@ -1,9 +1,10 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
+
 function ListGroup() {
   let items = ["Vancouver", "Toronto", "Halifax", "Edmonton"];
 
-  // Event handler
-  const handleClick = (event: MouseEvent) => console.log(event);
+  // Hook
+  const [selectedIndex, setSelectedIndex] = useState(-1); // two elements in the array: variable and updater function
 
   // go to getbootstrap.com -> docs -> list group
   return (
@@ -15,7 +16,17 @@ function ListGroup() {
 
       <ul className="list-group">
         {items.map((item, index) => (
-          <li className="list-group-item" key={index} onClick={handleClick}>
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={item}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
+          >
             {item}
           </li>
         ))}
