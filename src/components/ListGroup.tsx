@@ -3,22 +3,23 @@ import { useState } from "react";
 interface ListGroupProps {
   items: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup(props: ListGroupProps) {
+function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
   // Hook
   const [selectedIndex, setSelectedIndex] = useState(-1); // two elements in the array: variable and updater function
 
   // go to getbootstrap.com -> docs -> list group
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
 
       {/* {items.length === 0 ? <p>No item found</p> : null} */}
-      {props.items.length === 0 && <p>No item found</p>}
+      {items.length === 0 && <p>No item found</p>}
 
       <ul className="list-group">
-        {props.items.map((item, index) => (
+        {items.map((item, index) => (
           <li
             className={
               selectedIndex === index
@@ -28,6 +29,7 @@ function ListGroup(props: ListGroupProps) {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
