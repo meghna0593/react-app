@@ -6,6 +6,7 @@ Notes
 - React application is a tree of components with App being the root
 - Uses Virtual DOM
 - React is a library, Angular and Vue are Frameworks
+- Install React Dev Tools to get more insight into the React App on the browser
 
 - To create a React App: use official too "Create React App" or Vite
 - Using Vite:
