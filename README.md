@@ -31,4 +31,4 @@ Notes
   - cmd+shift+P -> wrap with abbr
   - cmd+shift+P -> format document
   - cmd+d: to select multiple similar words
-  - Wrap the code with <> </> to let React know we have a Fragment
+  - Wrap the code with `<> </>` to let React know we have a Fragment
